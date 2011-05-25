@@ -8,21 +8,7 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
     >
 
-  <!-- Maps the request through to a concrete controller instance -->
-    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <value>
-            /**/contactService.rpc=contactController
-            </value>
-        </property>
-    </bean>
+  <import resource="rpc-context.xml"/>
 
-    <!-- GwtRpcController wraps our service in order to decode the incoming -->
-    <!-- request then delegates processing of the call to the POJO service -->
-    <!-- and then encodes the return value forwarding the response. -->
-    <bean id="contactController" class="com.sample.contact.server.GwtRpcController">
-        <property name="remoteService">
-            <bean class="com.sample.contact.server.contactServiceImpl" />
-        </property>
-    </bean>
+  <context:property-placeholder location="classpath:properties/*.properties"/>
 </beans>

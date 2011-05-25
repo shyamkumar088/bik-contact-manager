@@ -3,9 +3,11 @@ package com.sample.contact.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.DOM;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.sample.contact.shared.domain.Person;
+
+import java.util.*;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>
@@ -22,7 +24,8 @@ public class contact implements EntryPoint {
     button.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         if (label.getText().equals("")) {
-          contactService.App.getInstance().getMessage("Hello, World!", new MyAsyncCallback(label));
+          /*contactService.App.getInstance().getMessage("Hello, World!", new MyAsyncCallback(label));*/
+          contactService.App.getInstance().findAllPersons(new PersonListAsyncCallback(label));
         } else {
           label.setText("");
         }
@@ -38,6 +41,21 @@ public class contact implements EntryPoint {
     RootPanel.get("slot2").add(label);
   }
 
+  private class PersonListAsyncCallback implements AsyncCallback<List<Person>>{
+
+    Label label;
+    public PersonListAsyncCallback(Label label) {
+      this.label = label;
+    }
+
+    public void onFailure(Throwable caught) {
+      label.setText("failure");
+    }
+
+    public void onSuccess(List<Person> result) {
+       label.setText("success");
+    }
+  }
   private static class MyAsyncCallback implements AsyncCallback<String> {
 
     private Label label;

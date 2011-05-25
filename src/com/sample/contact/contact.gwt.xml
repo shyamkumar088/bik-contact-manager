@@ -11,5 +11,7 @@
 
   <!-- Specify the app servlets.                   -->
   <servlet path='/contactService.rpc' class='com.sample.contact.server.contactServiceImpl'/>
+  <source path="client"/>
+  <source path="shared"/>
 
 </module>
