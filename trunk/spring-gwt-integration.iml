@@ -11,6 +11,14 @@
         </webroots>
       </configuration>
     </facet>
+    <facet type="gwt" name="GWT">
+      <configuration>
+        <setting name="compilerMaxHeapSize" value="128" />
+        <setting name="gwtScriptOutputStyle" value="DETAILED" />
+        <setting name="gwtSdkUrl" value="file://G:/Application/development/gwt-2.1.1" />
+        <setting name="webFacet" value="Web" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -75,8 +83,13 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: cglib:cglib:2.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: asm:asm:3.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javassist:javassist:3.9.0.GA" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:com.springsource.javax.servlet:2.5.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:com.springsource.javax.servlet.jsp:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:com.springsource.javax.servlet.jsp.jstl:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.taglibs:com.springsource.org.apache.taglibs.standard:1.1.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit:com.springsource.org.junit:4.7.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:org.springframework.test:3.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="gwt-user" level="project" />
   </component>
 </module>
 
