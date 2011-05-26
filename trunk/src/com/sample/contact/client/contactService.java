@@ -3,7 +3,7 @@ package com.sample.contact.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
-import com.sample.contact.shared.domain.Person;
+import com.sample.contact.shared.domain.PersonDTO;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ public interface contactService extends RemoteService {
 
   // Sample interface method of remote interface
   String getMessage(String msg);
-  List<Person> findAllPersons();
+  List<PersonDTO> findAllPersons();
 
   /**
    * Utility/Convenience class.

@@ -5,7 +5,8 @@ import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.sample.contact.shared.domain.Person;
+import com.sample.contact.client.ui.ContactEditor;
+import com.sample.contact.shared.domain.PersonDTO;
 
 import java.util.*;
 
@@ -18,14 +19,15 @@ public class contact implements EntryPoint {
    * This is the entry point method.
    */
   public void onModuleLoad() {
-    final Button button = new Button("Click me");
+    final Button button = new Button("Get All contacts");
     final Label label = new Label();
+    final ContactEditor contactEditor = new ContactEditor();
 
     button.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         if (label.getText().equals("")) {
           /*contactService.App.getInstance().getMessage("Hello, World!", new MyAsyncCallback(label));*/
-          contactService.App.getInstance().findAllPersons(new PersonListAsyncCallback(label));
+          contactService.App.getInstance().findAllPersons(new PersonListAsyncCallback(label, contactEditor));
         } else {
           label.setText("");
         }
@@ -39,21 +41,25 @@ public class contact implements EntryPoint {
     //
     RootPanel.get("slot1").add(button);
     RootPanel.get("slot2").add(label);
+     RootPanel.get("contactListDisplay").add(contactEditor);
   }
 
-  private class PersonListAsyncCallback implements AsyncCallback<List<Person>>{
+  private class PersonListAsyncCallback implements AsyncCallback<List<PersonDTO>>{
 
     Label label;
-    public PersonListAsyncCallback(Label label) {
+    ContactEditor contactEditor;
+    public PersonListAsyncCallback(Label label, ContactEditor contactEditor) {
       this.label = label;
+      this.contactEditor = contactEditor;
     }
 
     public void onFailure(Throwable caught) {
       label.setText("failure");
     }
 
-    public void onSuccess(List<Person> result) {
-       label.setText("success");
+    public void onSuccess(List<PersonDTO> result) {
+       label.setText("received data from server!!!");
+      contactEditor.setDataProvider(result);
     }
   }
   private static class MyAsyncCallback implements AsyncCallback<String> {
