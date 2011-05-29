@@ -13,7 +13,8 @@ import java.util.*;
 /**
  * Entry point classes define <code>onModuleLoad()</code>
  */
-public class contact implements EntryPoint {
+public class contact extends AbstractEntryPoint{
+
 
   /**
    * This is the entry point method.
@@ -26,8 +27,10 @@ public class contact implements EntryPoint {
     button.addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         if (label.getText().equals("")) {
+            contactServiceAsync contactServiceAsync1 = contactService.App.getInstance();
+            setRpcEndPointUrl(contactServiceAsync1);
           /*contactService.App.getInstance().getMessage("Hello, World!", new MyAsyncCallback(label));*/
-          contactService.App.getInstance().findAllPersons(new PersonListAsyncCallback(label, contactEditor));
+          contactServiceAsync1.findAllPersons(new PersonListAsyncCallback(label, contactEditor));
         } else {
           label.setText("");
         }
