@@ -1,7 +1,5 @@
 package com.sample.contact.server.domain;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
-
 import javax.persistence.*;
 
 /**
@@ -13,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "persons")
-public class Person implements IsSerializable{
+public class Person{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;

@@ -7,4 +7,18 @@
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
         >
+
+  <import resource="rpc-context.xml"/>
+  <import resource="service-context.xml"/>
+  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+
+  <context:property-placeholder location="classpath:properties/*.properties"/>
+
+  <bean id="storageController" class="com.sample.contact.server.StorageController">
+    <property name="storageService" ref="storageService"/>
+  </bean>
+  <bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+        p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
 </beans>
