@@ -12,17 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: zephyr
- * Date: 5/28/11
- * Time: 9:34 AM
- * To change this template use File | Settings | File Templates.
- */
 @Controller
 @GwtRpcEndPoint
-/*@RequestMapping(value = "/contactService.rpc", method = RequestMethod.POST)*/
-public class SpringControlledContactServiceImpl  /*extends GwtRpcController*/ implements contactService {
+public class SpringControlledContactServiceImpl implements contactService {
   private BasicDAO basicDAO;
 
   public void setBasicDAO(BasicDAO basicDAO) {

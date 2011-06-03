@@ -1,0 +1,25 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+    <g:FormPanel ui:field="uploadForm" action="/upload.htm">
+      <g:HTMLPanel>
+        <h1>FileUploadView</h1>
+        <table>
+          <tr>
+            <td>
+              <g:Label text='File to Upload:'/>
+            </td>
+            <td>
+              <g:FileUpload ui:field="fileToUpload" name="uploadedfile"/>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <g:Button ui:field="uploadButton" text='Upload it'/>
+            </td>
+          </tr>
+        </table>
+      </g:HTMLPanel>
+    </g:FormPanel>
+</ui:UiBinder>

@@ -1,0 +1,6 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:contact="urn:import:com.sample.contact.client.ui">
+ <g:HTMLPanel>
+  <span class="username_css" ui:field="spanToBeProgrammed" />
+ </g:HTMLPanel>
+</ui:UiBinder>
